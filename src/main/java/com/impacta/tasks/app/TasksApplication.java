@@ -1,4 +1,4 @@
-package com.impacta.tasks;
+package com.impacta.tasks.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

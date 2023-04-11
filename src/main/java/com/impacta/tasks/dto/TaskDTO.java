@@ -1,6 +1,6 @@
-package com.impacta.dto;
+package com.impacta.tasks.dto;
 
-import com.impacta.model.Task;
+import com.impacta.tasks.model.Task;
 
 public class TaskDTO {
 

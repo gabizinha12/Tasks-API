@@ -1,4 +1,4 @@
-package com.impacta.services;
+package com.impacta.tasks.services;
 
 import java.util.Optional;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.impacta.dto.TaskDTO;
-import com.impacta.model.Task;
-import com.impacta.repository.TaskRepository;
+import com.impacta.tasks.dto.TaskDTO;
+import com.impacta.tasks.model.Task;
+import com.impacta.tasks.repository.TaskRepository;
 
 @Service
 public class TaskService {
