@@ -23,13 +23,13 @@ public class TaskController {
 	@Autowired
 	private TaskService taskService;
 
-	@GetMapping("/tasks/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<TaskDTO> findById(@PathVariable Long id) {
 		TaskDTO task = taskService.findById(id);
 		return ResponseEntity.ok().body(task);
 	}
 
-	@PostMapping("/task/create")
+	@PostMapping("/create")
 	public ResponseEntity<TaskDTO> insertTask(@RequestBody TaskDTO dto) {
 		dto = taskService.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
