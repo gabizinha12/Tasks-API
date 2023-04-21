@@ -1,8 +1,10 @@
 package com.impacta.tasks.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,15 +22,17 @@ public class Task implements Serializable {
 	private Long id;
 	private String description;
 	private String title;
+	private LocalDate deadline;
 
 	public Task() {
 	}
 
-	public Task(Long id, String description, String title) {
+	public Task(Long id, String description, String title, LocalDate deadline) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.title = title;
+		this.deadline = deadline;
 	}
 
 	public Long getId() {
@@ -71,6 +75,14 @@ public class Task implements Serializable {
 		Task other = (Task) obj;
 		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
 				&& Objects.equals(title, other.title);
+	}
+
+	public LocalDate getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(LocalDate deadline) {
+		this.deadline = deadline;
 	}
 
 }

@@ -1,29 +1,41 @@
 package com.impacta.tasks.dto;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.impacta.tasks.model.Task;
 
-public class TaskDTO {
+public class TaskDTO implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String title;
 	private String description;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate deadline;
 
 	public TaskDTO(Task entity) {
 		super();
 		this.id = entity.getId();
 		this.description = entity.getDescription();
 		this.title = entity.getTitle();
+		this.deadline = entity.getDeadline();
 
 	}
 
 	public TaskDTO() {
 	}
-	
-	public TaskDTO(Long id, String title, String description) {
+
+	public TaskDTO(Long id, String title, String description, LocalDate deadline) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
+		this.deadline = deadline;
 	}
 
 	public Long getId() {
@@ -50,6 +62,12 @@ public class TaskDTO {
 		this.description = description;
 	}
 
+	public LocalDate getDeadline() {
+		return deadline;
+	}
 
+	public void setDeadline(LocalDate deadline) {
+		this.deadline = deadline;
+	}
 
 }

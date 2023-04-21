@@ -45,14 +45,15 @@ public TaskDTO findById(Long id) {
 	}
 	
 	
-	public TaskDTO  delete(Long id) {
-		return null;
+	public void delete(Long id) {
+		taskRepository.deleteById(id);
 		
 	}
 	
 	public void copyToDTO(TaskDTO dto, Task task) {
 		task.setTitle(dto.getTitle());
 		task.setDescription(dto.getDescription());
+		task.setDeadline(dto.getDeadline());
 	}
 	 
 }
