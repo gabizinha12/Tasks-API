@@ -3,8 +3,11 @@ package com.impacta.tasks.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.impacta.tasks.model.Task;
+
+import jakarta.validation.constraints.NotBlank;
 
 public class TaskDTO implements Serializable {
 
@@ -13,7 +16,9 @@ public class TaskDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long id;
+	@NotBlank
 	private String title;
+	@NotBlank
 	private String description;
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate deadline;
