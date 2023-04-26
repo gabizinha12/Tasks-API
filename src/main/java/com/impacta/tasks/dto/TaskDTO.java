@@ -3,10 +3,10 @@ package com.impacta.tasks.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.impacta.tasks.model.Task;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 
 public class TaskDTO implements Serializable {
