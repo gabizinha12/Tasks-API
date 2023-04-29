@@ -24,12 +24,12 @@ public class Task implements Serializable {
 	private String description;
 	@Column(unique = true)
 	private String title;
-	private LocalDate deadline;
+	private String deadline;
 
 	public Task() {
 	}
 
-	public Task(Long id, String description, String title, LocalDate deadline) {
+	public Task(Long id, String description, String title, String deadline) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -79,11 +79,11 @@ public class Task implements Serializable {
 				&& Objects.equals(title, other.title);
 	}
 
-	public LocalDate getDeadline() {
+	public String getDeadline() {
 		return deadline;
 	}
 
-	public void setDeadline(LocalDate deadline) {
+	public void setDeadline(String deadline) {
 		this.deadline = deadline;
 	}
 

@@ -2,11 +2,13 @@ package com.impacta.tasks.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.impacta.tasks.model.Task;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 
 public class TaskDTO implements Serializable {
@@ -20,8 +22,7 @@ public class TaskDTO implements Serializable {
 	private String title;
 	@NotBlank
 	private String description;
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate deadline;
+	private String deadline;
 
 	public TaskDTO(Task entity) {
 		super();
@@ -35,7 +36,7 @@ public class TaskDTO implements Serializable {
 	public TaskDTO() {
 	}
 
-	public TaskDTO(Long id, String title, String description, LocalDate deadline) {
+	public TaskDTO(Long id, String title, String description, String deadline) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -67,11 +68,11 @@ public class TaskDTO implements Serializable {
 		this.description = description;
 	}
 
-	public LocalDate getDeadline() {
+	public String getDeadline() {
 		return deadline;
 	}
 
-	public void setDeadline(LocalDate deadline) {
+	public void setDeadline(String deadline) {
 		this.deadline = deadline;
 	}
 
