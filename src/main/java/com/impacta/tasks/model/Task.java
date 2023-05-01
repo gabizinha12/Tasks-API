@@ -1,7 +1,6 @@
 package com.impacta.tasks.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Column;

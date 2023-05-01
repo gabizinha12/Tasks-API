@@ -1,12 +1,7 @@
 package com.impacta.tasks.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.impacta.tasks.model.Task;
 
 import jakarta.validation.constraints.NotBlank;
