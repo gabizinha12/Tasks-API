@@ -10,9 +10,10 @@ RUN ./mvnw dependency:resolve
 
 COPY src ./src
 
+RUN apt-get update && apt-get install -y postgresql-client
 
 # Set environment variables for PostgreSQL connection
-ENV DB_HOST=5432
+ENV DB_HOST=localhost
 ENV DB_PORT=5432
 ENV DB_NAME=tasks
 ENV DB_USERNAME=postgres
