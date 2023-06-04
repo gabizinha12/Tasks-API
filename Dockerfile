@@ -2,13 +2,15 @@
 
 FROM eclipse-temurin:17-jdk-jammy
 
+
+COPY ./target/Tasks-API-0.0.1-SNAPSHOT.jar /app/Tasks-API-0.0.1-SNAPSHOT.jar
+
+# Set the working directory in the container
 WORKDIR /app
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:resolve
 
-COPY src ./src
+# Expose the port on which the API will run
+EXPOSE 8080
 
-# Run the API
-  CMD ["./mvnw", "spring-boot:run"]
+# Start the Java application
+CMD ["java", "-jar", "Tasks-API-0.0.1-SNAPSHOT.jar"]

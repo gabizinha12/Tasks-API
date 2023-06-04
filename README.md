@@ -8,3 +8,4 @@
    - Spring Data JPA
    - OpenAPI for documentation
    - Docker
+   - Bean Validation
