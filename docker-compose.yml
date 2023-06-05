@@ -1,25 +1,40 @@
-version: "3"
-
+version: "3.7"
 services:
-  tasksapi:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    networks:
-      - dbnetwork
-    depends_on:
-      - postgres
-
-  postgres:
-    image: postgres
+  # ====================================================================================================================
+  # POSTGRES SERVER
+  # ====================================================================================================================
+  pg-docker:
+    image: postgres:15-alpine
+    container_name: dev-postgresql-tasks
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_URL}
+      POSTGRES_DB: mydatabase
+      POSTGRES_PASSWORD: 1234567
+    ports:
+      - 5433:5432
+    volumes:
+      - ./.data/postgresql/data:/var/lib/postgresql/data
     networks:
-      - dbnetwork
-
+      - dev-network
+  # ====================================================================================================================
+  # PGADMIN
+  # ====================================================================================================================
+  pgadmin-docker:
+    image: dpage/pgadmin4
+    container_name: dev-pgadmin-tasks
+    environment:
+      PGADMIN_DEFAULT_EMAIL: me@example.com
+      PGADMIN_DEFAULT_PASSWORD: 1234567
+    ports:
+      - 5050:80
+    volumes:
+      - ./.data/pgadmin:/var/lib/pgadmin
+    depends_on:
+      - pg-docker
+    networks:
+      - dev-network
+# ======================================================================================================================
+# REDE
+# ======================================================================================================================
 networks:
-  dbnetwork:
+  dev-network:
     driver: bridge
-
