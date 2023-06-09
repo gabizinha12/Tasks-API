@@ -23,11 +23,9 @@ public class Task implements Serializable {
 	@Id
 	private Long id;
 	@Column(unique = true)
-	@NotBlank
 	private String description;
 	@Column(unique = true)
 	private String title;
-	@NotBlank
 	private String deadline;
 
 	public Task() {

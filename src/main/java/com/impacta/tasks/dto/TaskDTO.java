@@ -16,7 +16,6 @@ public class TaskDTO implements Serializable {
 	@NotBlank
 	private String title;
 	@NotBlank
-	
 	private String description;
 	private String deadline;
 
